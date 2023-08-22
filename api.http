@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### 
-@product_id = 49c57811-fbee-45e6-8cdb-e3aca0f51218
+@product_id = 96117c13-a67f-46d7-bc7c-713eb983bce2
 
 ### Customers
 GET http://localhost:3000/customers
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-@customer_id = 5d15c2b6-c7cf-4282-a586-66ef53491c93
+@customer_id = d5b7ef96-c14a-455a-9eb1-6de2c7cff4e1
 
 ### Orders
 GET http://localhost:3000/orders
