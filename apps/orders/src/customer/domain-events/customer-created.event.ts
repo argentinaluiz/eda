@@ -16,3 +16,5 @@ export class CustomerCreatedEvent implements IDomainEvent {
     this.event_version = 1;
   }
 }
+//event carried state transfer
+//event notification

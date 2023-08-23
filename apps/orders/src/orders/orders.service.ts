@@ -73,3 +73,12 @@ export class OrdersService {
 //   order.reject();
 // }
 // //enviar e-mail
+// return order;
+
+//via eventos
+// const order = Order.create({
+//   customer_id: createOrderDto.customer_id,
+//   items,
+// });
+// this.orderRepo.add(order);
+// return order;

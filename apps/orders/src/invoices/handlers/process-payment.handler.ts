@@ -13,18 +13,20 @@ export class ProcessPaymentHandler implements IDomainEventHandler {
     private paymentGateway: PaymentGateway,
     private domainEventManager: DomainEventManager,
   ) {}
+
   async handle(event: OrderCreatedEvent): Promise<void> {
-    const invoice = new Invoice(
-      event.aggregate_id,
-      event.items.reduce(
+    const invoice = Invoice.create({
+      order_id: event.aggregate_id,
+      amount: event.items.reduce(
         (total, item) => total + item.price * item.quantity,
         0,
       ),
-      InvoiceStatus.PENDING,
-    );
+      status: InvoiceStatus.PENDING,
+    });
     this.invoiceRepo.add(invoice);
     await this.paymentGateway.pay(invoice);
     invoice.pay();
+    //InvoiceCreated e InvoicePayed
     await this.domainEventManager.publish(invoice);
   }
 }

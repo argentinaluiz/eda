@@ -12,7 +12,7 @@ Content-Type: application/json
 }
 
 ### 
-@product_id = 96117c13-a67f-46d7-bc7c-713eb983bce2
+@product_id = 7f485799-dad6-4b26-a1c3-1fb960f25e88
 
 ### Customers
 GET http://localhost:3000/customers
@@ -29,7 +29,7 @@ Content-Type: application/json
 }
 
 ###
-@customer_id = d5b7ef96-c14a-455a-9eb1-6de2c7cff4e1
+@customer_id = 7fd77a71-a9af-4d97-938a-f8ba2f0d3a0e
 
 ### Orders
 GET http://localhost:3000/orders
@@ -47,3 +47,32 @@ Content-Type: application/json
         }
     ]
 }
+
+# orders --- sincrono (criacao do pedido, criacao da fatura, pagamento)
+# processos de longa duração - 
+# order orquestrator service
+    # order created -> invoice created -> invoice payed -> order approved
+#                    -> invoice rejected -> order canceled -> enviar mail
+
+# orquestação e coerografia
+
+# orders --  assincrona - enviar o evento de integração via rabbitmq --- mailer
+
+## processar o pedido
+
+#OrderCreated
+#InvoiceCreated
+#InvoicePayed
+#OrderApproved
+
+
+//---
+#DebitEvent
+#CreditEvent - 31/01/2023 (saldo daquele dia)
+# snapshot (instantaneo) Conta - 1000
+#CreditEvent
+#DebitEvent
+#
+#
+#
+#          - 20/06/2023

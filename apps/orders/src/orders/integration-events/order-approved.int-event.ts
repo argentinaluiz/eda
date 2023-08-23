@@ -12,7 +12,7 @@ export class OrderApprovedIntegrationEvent implements IIntegrationEvent {
     this.payload = {
       id: domainEvent.aggregate_id,
       date: domainEvent.occurred_on,
-    };
+    }; //notification
     this.event_version = 1;
     this.occurred_on = domainEvent.occurred_on;
   }

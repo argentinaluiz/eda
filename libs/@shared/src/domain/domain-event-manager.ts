@@ -4,8 +4,8 @@ import { Injectable } from '@nestjs/common';
 
 @Injectable()
 export class DomainEventManager {
-  domainEventsSubscriber: EventEmitter2;
-  integrationEventsSubscriber: EventEmitter2;
+  domainEventsSubscriber: EventEmitter2; //eventos que vão ser consumidos pela propria
+  integrationEventsSubscriber: EventEmitter2; //eventos que vão ser consumidos por outros serviços
 
   constructor() {
     this.domainEventsSubscriber = new EventEmitter2({
